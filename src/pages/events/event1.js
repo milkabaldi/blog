@@ -5,3 +5,7 @@ const Page = () => {
 }
 
 export default Page
+
+
+// /events/[eventPerCity]/[event]
+// /events/[eventInLondon]/new-year-eve

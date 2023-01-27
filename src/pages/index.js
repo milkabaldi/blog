@@ -5,7 +5,7 @@ import styles from '@/styles/Home.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+export default function Home({title}) {
   return (
     <>
       <Head>
@@ -23,6 +23,7 @@ export default function Home() {
           </nav>
       </header>
       <main className={styles.main}>
+        <h1>{title}</h1>
         <a href=''>
           <img src="" alt="City" />
           <h2>Events in London</h2>
@@ -50,4 +51,16 @@ export default function Home() {
       </footer>
     </>
   )
+}
+
+
+
+
+
+export function getServerSideProps(){
+  return {
+    props:{
+      title: 'Hellow everyone'
+    }
+  }
 }

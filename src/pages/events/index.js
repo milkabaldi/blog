@@ -1,7 +1,7 @@
-const Page = () => {
+const EventsPage = () => {
   return (
     <div>
-      <h1>Events pages</h1>
+      <h1>Event Page</h1>
       <a href="">
         <img src="" alt="City" />
         <h2>Events in London</h2>
@@ -21,4 +21,5 @@ const Page = () => {
   )
 }
 
-export default Page
+
+export default EventsPage
