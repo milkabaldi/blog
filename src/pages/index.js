@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Link  from 'next/link';
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 
@@ -17,15 +18,15 @@ export default function Home({data}) {
       <header>
           <nav>
             <img src="" alt="Logo" />
-            <a href="/">Home</a>
-            <a href="/events">Events</a>
-            <a href="/about-us">About Us</a>
+            <Link href="/" passHref>Home</Link>
+            <Link href="/events" passHref>Events</Link>
+            <Link href="/about-us" passHref>About Us</Link>
           </nav>
       </header>
       <main className={styles.main}>
       <h1>Events pages</h1>
 
-      {data.map(ev => <a key={ev.id} href={`/events/${ev.id}`}><Image width={200} height={'100%'} alt={ev.title} src={data.image} /><h2>{ev.title}</h2><p>{ev.description}</p></a> )}
+      {data.map(ev => <Link key={ev.id} href={`/events/${ev.id}`} passHref><Image width={200} height={'100%'} alt={ev.title} src={data.image} /><h2>{ev.title}</h2><p>{ev.description}</p></Link> )}
 
 
       </main>
