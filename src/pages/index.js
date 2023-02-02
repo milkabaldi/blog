@@ -3,6 +3,9 @@ import Image from 'next/image'
 import Link  from 'next/link';
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
+import { HomePage } from './components/home/home-page';
+import { Footer } from './components/footer/footer';
+import { Header } from './components/header/header';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,24 +18,9 @@ export default function Home({data}) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header>
-          <nav>
-            <img src="" alt="Logo" />
-            <Link href="/" passHref>Home</Link>
-            <Link href="/events" passHref>Events</Link>
-            <Link href="/about-us" passHref>About Us</Link>
-          </nav>
-      </header>
-      <main className={styles.main}>
-      <h1>Events pages</h1>
-
-      {data.map(ev => <Link key={ev.id} href={`/events/${ev.id}`} passHref><Image width={200} height={200} alt={ev.title} src={ev.image} /><h2>{ev.title}</h2><p>{ev.description}</p></Link> )}
-
-
-      </main>
-      <footer className={styles.footer}>
-        <p>Blog 2023 Всі права захищені</p>
-      </footer>
+      <Header />
+      <HomePage data={data} />
+      <Footer />
     </>
   )
 }
