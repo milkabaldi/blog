@@ -3,11 +3,12 @@ import Image from "next/image"
 
 export const HomePage = ({data}) => 
      (
-        <main>
+        <div className="home__body">
         <h1>Home pages</h1>
         
-        {data.map(ev => <Link key={ev.id} href={`/events/${ev.id}`} passHref><Image width={200} height={200} alt={ev.title} src={ev.image} /><h2>{ev.title}</h2><p>{ev.description}</p></Link> )}
-        </main>
+        {data.map(ev => <Link className="hpme__body-card" key={ev.id} href={`/events/${ev.id}`} passHref>
+            <div className='image'><Image width={200} height={200} alt={ev.title} src={ev.image} /></div><h2>{ev.title}</h2><p>{ev.description}</p></Link> )}
+        </div>
     )
 
 
