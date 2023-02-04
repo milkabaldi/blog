@@ -4,6 +4,7 @@ import Image from 'next/image'
 export const Header = ({ data }) => {
   return (
     <header>
+      <div>
       <div className="topNav">
         <Image
           src={'../../../../public/next.svg'}
@@ -32,6 +33,8 @@ export const Header = ({ data }) => {
         </nav>
       </div>
       <h1>Lorem ipsum dolor sit amet consectetur adipisicing.</h1>
+      </div>
+
     </header>
   )
 }

@@ -1,9 +1,13 @@
 header
   height: 300px
   padding: 20px
-  display: flex
-  flex-direction: column
-  justify-content: space-between
+  >div
+    width: 100%
+    max-width: 1250px
+    margin: auto
+    display: flex
+    flex-direction: column
+    justify-content: space-between
   h1
     width: 50%
     font-size: 40px
@@ -30,9 +34,10 @@ footer
 
 main
   width: 100%
-  max-width: 1450px
+  max-width: 1250px
   margin: auto
-  padding: 30px
+  padding: 100px 30px
+  min-height: 550px
 
 .home__body 
   display: flex
@@ -47,5 +52,8 @@ main
     justify-content: center
     align-items: center
     align-content: center
+    &:nth-child(even)
+      direction: rtl
+      
   .content
-    
+    width: 50%
