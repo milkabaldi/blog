@@ -1,6 +1,6 @@
 header
   height: 300px
-  padding: 20px
+  padding: 20px 30px
   >div
     width: 100%
     max-width: 1250px
@@ -8,7 +8,7 @@ header
     display: flex
     flex-direction: column
     justify-content: space-between
-  h1
+  .title
     width: 50%
     font-size: 40px
     text-transform: uppercase
@@ -16,6 +16,7 @@ header
     display: flex
     justify-content: space-between
     align-content: center
+    margin-bottom: 20px
     ul
       display: flex
       list-style: none
@@ -36,7 +37,7 @@ main
   width: 100%
   max-width: 1250px
   margin: auto
-  padding: 100px 30px
+  padding: 80px 30px
   min-height: 550px
 
 .home__body 
@@ -57,3 +58,40 @@ main
       
   .content
     width: 50%
+
+
+.about
+  &__list
+    display: flex
+    flex-direction: column
+
+.events-page
+  display: flex
+  flex-direction: row
+  gap: 20px
+  &__card
+    position: relative
+    h2  
+      position: absolute
+      width: 100%
+      top: 50%
+      text-align: center
+      font-size: 38px
+      color: white
+      text-transform: uppercase
+      text-shadow: 1px 1px 20px black
+
+
+.category
+  width: 100%
+  &__main
+    display: flex
+    flex-wrap: wrap
+    flex-direction: row
+    margin-right: 0
+    justify-items: flex-start
+    &-card
+      display: flex
+      flex-direction: column
+      width: 33%
+      

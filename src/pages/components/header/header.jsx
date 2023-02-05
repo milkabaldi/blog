@@ -32,7 +32,7 @@ export const Header = ({ data }) => {
           </ul>
         </nav>
       </div>
-      <h1>Lorem ipsum dolor sit amet consectetur adipisicing.</h1>
+      <p className='title'>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
       </div>
 
     </header>
