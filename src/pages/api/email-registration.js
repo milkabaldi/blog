@@ -5,11 +5,9 @@ export default function handler(req, res) {
 
     //we add our code here
 
-    res
-      .status(200)
-      .json({
+    res.status(200).json({
         message:
-          'You has been registered successfully with the email: ${email} ${eventId}',
+          `You has been registered successfully with the email: ${email} ${eventId}`,
       })
   }
 }

@@ -20,6 +20,7 @@ const SingleEvent = ({ data }) => {
       })
       if(!response.ok) throw new Error (`Error: ${response.status}`)
       const data = await response.json()
+      console.log('POST', data)
 
       //POST fetch request
       // body emailValue and the eventId
