@@ -43,7 +43,7 @@ const SingleEvent = ({ data }) => {
         id="email"
         placeholder="Please insert your email here"
       />
-      <button type="submit">Submit</button>
+      <button type='submit'>Submit</button>
       </form>
 
     </div>
