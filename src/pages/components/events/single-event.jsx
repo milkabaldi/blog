@@ -1,35 +1,41 @@
-import React, { useRef, useState } from 'react'
-import Image from 'next/image'
-import { useRouter } from 'next/router'
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+import React, { useRef, useState } from 'react';
 
 const SingleEvent = ({ data }) => {
-  const inputEmail = useRef()
-  const router = useRouter()
-  const onSubmit = async(e) => {
-    e.preventDefault()
-    const emailValue = inputEmail.current.value
-    const eventId = router?.query.id
+  const inputEmail = useRef();
+  const router = useRouter();
+  const [message, setMessage] = useState('');
 
-    try{
-      const response = await fetch('/appi/email-registration', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({email: emailValue, eventId: eventId})
-      })
-      if(!response.ok) throw new Error (`Error: ${response.status}`)
-      const data = await response.json()
-      console.log('POST', data)
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    const emailValue = inputEmail.current.value;
+    const eventId = router?.query.id;
 
-      //POST fetch request
-      // body emailValue and the eventId
-    } catch (e) {
-      console.log('ERROR', e)
+    const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+    if (!emailValue.match(validRegex)) {
+      setMessage('Please introduce a correct email address');
     }
 
-  }
+    try {
+      const response = await fetch('/api/email-registration', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: emailValue, eventId }),
+      });
 
+      if (!response.ok) throw new Error(`Error: ${response.status}`);
+      const data = await response.json();
+      setMessage(data.message);
+      inputEmail.current.value = '';
+    } catch (e) {
+      console.log('ERROR', e);
+    }
+  };
+  
   return (
     <div className="single">
       <h1>{data.title}</h1>
@@ -45,7 +51,7 @@ const SingleEvent = ({ data }) => {
       />
       <button type='submit'>Submit</button>
       </form>
-
+      <p>{message}</p>
     </div>
   )
 }
