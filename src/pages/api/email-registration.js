@@ -35,10 +35,19 @@ if(!allEvents) {
 
     const newAllEvents = allEvents.map(ev => {
       if(ev.id ===eventId) {
-        if()
+        if(ev.id === eventId) {
+          if(ev.email_registered.includes(email)){
+            res.status(201).json({message: 'This email has already been registered'})
+          }
+          return {
+            ...ev, email_registered:[...ev.email_registered, email]
+          }
+        }
       }
-      return
+      return ev
     })
+
+    fs.writeFileSync(filePath, JSON.stringify({events_categories, allEvents: newAllEvents}))
 
 
     res.status(200).json({
